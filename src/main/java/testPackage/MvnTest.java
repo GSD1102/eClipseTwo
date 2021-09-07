@@ -17,7 +17,7 @@ public class MvnTest {
 	public WebDriver driver ; 
 	
 	@Test             
-	public void test() 
+	public void test() throws InterruptedException 
 	{      
 	
 	System.setProperty("webdriver.chrome.driver", driverPath);  
@@ -25,26 +25,34 @@ public class MvnTest {
 	driver = new ChromeDriver();  
 	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);  
 	driver.manage().window().maximize();  
+	Thread.sleep(500);
 	driver.get(baseUrl);  
 	// get the current URL of the page  
+	
 	String URL= driver.getCurrentUrl();  
 	System.out.print(URL);  
 	//get the title of the page  
-	String title = driver.getTitle();                  
+	
+	String title = driver.getTitle();
+	
 	System.out.println(title);  
 	}     
 	
 	@BeforeTest
 	public void beforeTest()
 	{    
-	System.out.println("before suyin  test");  
+	System.out.println("before suyin  test");
+	
+	System.out.println("before in  test");
+	System.out.println("before after test  test");
+	
 	}     
 	
 	
 	@AfterTest
 	public void afterTest() {  
 	driver.quit();  
-	System.out.println("after test");  
+	System.out.println("after test annotation ");  
 	}
 	
 	
